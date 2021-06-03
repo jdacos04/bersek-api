@@ -1,6 +1,7 @@
 import {Request,Response} from 'express'
 import {QueryResult} from 'pg'
 import {pool} from '../db'
+import { signUp } from './auth.controllers';
 
 
 
@@ -32,22 +33,22 @@ export const getUserById = async (req: Request, res: Response): Promise<Response
 };
 
 export const createUser = async (req: Request, res: Response) => {
-    const { name, email } = req.body;
-    const response = await pool.query('INSERT INTO users (name, email) VALUES ($1, $2)', [name, email]);
+    const { password, email } = req.body;
+    const response = await pool.query('INSERT INTO users (password, email) VALUES ($1, $2)', [password, email]);
     res.json({
         message: 'User Added successfully',
         body: {
-            user: { name, email }
+            user: { password, email }
         }
     })
 };
 
 export const updateUser = async (req: Request, res: Response) => {
     const id = parseInt(req.params.id);
-    const { name, email } = req.body;
+    const { password, email } = req.body;
 
     const response = await pool.query('UPDATE users SET name = $1, email = $2 WHERE id = $3', [
-        name,
+        password,
         email,
         id
     ]);
@@ -61,3 +62,4 @@ export const deleteUser = async (req: Request, res: Response) => {
     ]);
     res.json(`User ${id} deleted Successfully`);
 };
+
