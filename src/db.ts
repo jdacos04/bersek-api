@@ -14,5 +14,5 @@ export const pool = new Pool({
 //     host: process.env.HOST,
 //     password: process.env.PASSWORD,
 //     database: process.env.DB,
-//     port: 5432
+//     port: process.env.PUERTO
 // });

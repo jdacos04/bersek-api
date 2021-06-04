@@ -2,6 +2,7 @@ import { Strategy, ExtractJwt, StrategyOptions } from "passport-jwt";
 import config from "../config/config";
 import {pool} from '../db'
 
+
 const opts: StrategyOptions = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
   secretOrKey: config.jwtSecret
@@ -9,8 +10,8 @@ const opts: StrategyOptions = {
 
 export default new Strategy(opts, async (payload, done) => {
   try {
-    const user = await  pool.query('SELECT * FROM users WHERE id = $1', [payload.id])
-    const confir = user.rows[0]
+    const user = await  pool.query('SELECT * FROM users WHERE user_id = $1', [payload.id])
+    const confir = user.rows
     if (confir) {
       return done(null, user);
     }
@@ -19,4 +20,5 @@ export default new Strategy(opts, async (payload, done) => {
     console.log(error);
   }
 });
+
 

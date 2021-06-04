@@ -4,10 +4,7 @@ import config from "../config/config";
 import {pool} from '../db'
 import {IUser} from '../models/user'
 import bcrypt from 'bcrypt'
-import { QueryResult } from "pg";
-
-
-
+import {QueryResult} from 'pg'
 
 function createToken(user:IUser) {
     return jwt.sign({ id: user.id, email: user.email }, config.jwtSecret, {
@@ -17,6 +14,7 @@ function createToken(user:IUser) {
   
 
   export const signUp = async (req: Request,res: Response): Promise<Response> => {
+    console.log(req.body)
     const  {password , email} = req.body
     if (!req.body.email || !req.body.password) {
       return res
@@ -52,10 +50,10 @@ function createToken(user:IUser) {
   
     const user = await pool.query('SELECT * FROM users WHERE email = $1', [req.body.email]);
     const userpass= user.rows[0].password;
-    console.log(userpass);
+    
 
     if (!user) {
-      return res.status(400).json({ msg: "El usuaio no existe" });
+      return res.status(400).json({ msg: "El usuario no existe" });
     }
     
     const isMatch = await bcrypt.compareSync(req.body.password, userpass)
@@ -65,6 +63,38 @@ function createToken(user:IUser) {
     }
   
     return res.status(400).json({
-      msg: "The email or password are incorrect"
+      msg: "Email o password incorrectos "
     });
   };
+
+  export const deleteUser = async (req: Request, res: Response) => {
+    const id = parseInt(req.params.id);
+    await pool.query('DELETE FROM users WHERE user_id = $1', [
+        id
+    ]);
+    res.json(`usuario eliminado `);
+};
+
+export const updateUsers= async (req: Request, res: Response) => {
+  const id = parseInt(req.params.id);
+  const { email, password } = req.body;
+
+  const salt = await bcrypt.genSalt(10);
+    const hash = await bcrypt.hash(req.body.password,salt)
+    const newPass = hash
+
+
+
+  const response = await pool.query('UPDATE users SET email = $1, password = $2 WHERE user_id = $3', [email,newPass,id ]);
+  res.status(200).json({message:'Usuario actualizado ',
+          body:{
+              user:{email, password, id}
+          }});
+
+};
+
+export const getUsersById = async (req: Request, res: Response): Promise<Response> => {
+  const id = parseInt(req.params.id);
+  const response: QueryResult = await pool.query('SELECT * FROM users WHERE user_id = $1', [id]);
+  return res.status(200).json(response.rows[0].email);
+};

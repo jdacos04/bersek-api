@@ -1,0 +1,571 @@
+{
+	"info": {
+		"_postman_id": "e9cf7848-f19f-48ce-9cd0-8805eab0897a",
+		"name": "bersek-res-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "usuario",
+			"item": [
+				{
+					"name": "singup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer token ",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"email\":\"juan@gmail.com\",\r\n\t\"password\":\"123456789\"\r\n\t\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "singin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"email\":\"pp@gmail.com\",\r\n\t\"password\":\"123456789\"\r\n\t\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "usario por id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBwQGdtYWlsLmNvbSIsImlhdCI6MTYyMjc1NzM4MiwiZXhwIjoxNjIyODQzNzgyfQ.if7zuFzEzIIsqlk8-Y61539W15gGK0Yr6_RlZ9luid8",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrar usaurio",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBwQGdtYWlsLmNvbSIsImlhdCI6MTYyMjc1NzM4MiwiZXhwIjoxNjIyODQzNzgyfQ.if7zuFzEzIIsqlk8-Y61539W15gGK0Yr6_RlZ9luid8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/users/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar usuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBwQGdtYWlsLmNvbSIsImlhdCI6MTYyMjc1NzM4MiwiZXhwIjoxNjIyODQzNzgyfQ.if7zuFzEzIIsqlk8-Y61539W15gGK0Yr6_RlZ9luid8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"elcocoloco@gamil.com\",\r\n    \"password\":\"cocofred\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/users/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "notas",
+			"item": [
+				{
+					"name": "dame todas las notas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBwQGdtYWlsLmNvbSIsImlhdCI6MTYyMjc1NzM4MiwiZXhwIjoxNjIyODQzNzgyfQ.if7zuFzEzIIsqlk8-Y61539W15gGK0Yr6_RlZ9luid8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/notes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buscar notas por id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBwQGdtYWlsLmNvbSIsImlhdCI6MTYyMjc1NzM4MiwiZXhwIjoxNjIyODQzNzgyfQ.if7zuFzEzIIsqlk8-Y61539W15gGK0Yr6_RlZ9luid8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/notes/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"notes",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear nota",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBwQGdtYWlsLmNvbSIsImlhdCI6MTYyMjc1NzM4MiwiZXhwIjoxNjIyODQzNzgyfQ.if7zuFzEzIIsqlk8-Y61539W15gGK0Yr6_RlZ9luid8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"title\":\"eculo\",\r\n\"text\":\"peluo\"\r\n\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/notes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar notas",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBwQGdtYWlsLmNvbSIsImlhdCI6MTYyMjc1NzM4MiwiZXhwIjoxNjIyODQzNzgyfQ.if7zuFzEzIIsqlk8-Y61539W15gGK0Yr6_RlZ9luid8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"1 2 3 4 marchando mi combo \",\r\n    \"text\":\"formo un alboroto \"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/notes/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"notes",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar notas",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBwQGdtYWlsLmNvbSIsImlhdCI6MTYyMjc1NzM4MiwiZXhwIjoxNjIyODQzNzgyfQ.if7zuFzEzIIsqlk8-Y61539W15gGK0Yr6_RlZ9luid8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/notes/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"notes",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "img",
+			"item": [
+				{
+					"name": "ver imagen todas las imagenes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBwQGdtYWlsLmNvbSIsImlhdCI6MTYyMjc1NzM4MiwiZXhwIjoxNjIyODQzNzgyfQ.if7zuFzEzIIsqlk8-Y61539W15gGK0Yr6_RlZ9luid8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/img",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"img"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post imagen",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBwQGdtYWlsLmNvbSIsImlhdCI6MTYyMjc1NzM4MiwiZXhwIjoxNjIyODQzNzgyfQ.if7zuFzEzIIsqlk8-Y61539W15gGK0Yr6_RlZ9luid8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/jdaco/Desktop/JD/chiguirito.png"
+								},
+								{
+									"key": "title",
+									"value": "chiguitio",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "un chiguirito",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/img",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"img"
+							],
+							"query": [
+								{
+									"key": "image",
+									"value": "File",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ver imagen por id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBwQGdtYWlsLmNvbSIsImlhdCI6MTYyMjc1NzM4MiwiZXhwIjoxNjIyODQzNzgyfQ.if7zuFzEzIIsqlk8-Y61539W15gGK0Yr6_RlZ9luid8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/img/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"img",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizar datos de imagen por id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBwQGdtYWlsLmNvbSIsImlhdCI6MTYyMjc1NzM4MiwiZXhwIjoxNjIyODQzNzgyfQ.if7zuFzEzIIsqlk8-Y61539W15gGK0Yr6_RlZ9luid8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"title\":\"unchiguirito\",\r\n\"description\":\"sendo chiguiere\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/img/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"img",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar imagen",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Berer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBwQGdtYWlsLmNvbSIsImlhdCI6MTYyMjc1NzM4MiwiZXhwIjoxNjIyODQzNzgyfQ.if7zuFzEzIIsqlk8-Y61539W15gGK0Yr6_RlZ9luid8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:4000/img/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"img",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "https://localhost:4000/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:4000/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
