@@ -33,10 +33,14 @@ function createToken(user:IUser) {
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(req.body.password,salt)
     const newPass = hash
+
+  
+    const data=req.body.email
+    console.log(data)
   
 
     await pool.query('INSERT INTO users (email, password) VALUES ($1, $2)', [req.body.email, newPass]);
-    return res.status(201).json('usuario creado correctamente');
+    return res.json({status: "SUCCESS",message:'Signup successful',data: data});
   };
 
 
@@ -44,9 +48,10 @@ function createToken(user:IUser) {
   export const signIn = async (req: Request,res: Response ): Promise<Response> => {
     if (!req.body.email || !req.body.password) {
       return res
-        .status(400)
+        .status(500)
         .json({ msg: "por favor ingrese email y contrasena" });
     }
+    
   
     const user = await pool.query('SELECT * FROM users WHERE email = $1', [req.body.email]);
     const userpass= user.rows[0].password;
@@ -58,13 +63,16 @@ function createToken(user:IUser) {
     
     const isMatch = await bcrypt.compareSync(req.body.password, userpass)
     if (isMatch) {
+      const data =req.body.email
         
-      return res.status(400).json({ token: createToken(user.rows[0]) });
+      // return res.status(400).json({ token: createToken(user.rows[0]) ,status: "SUCCESS", message:"logeado" });
+      return res.json({ status: "SUCCESS", message:"Signin successful",data:data});
     }
   
     return res.status(400).json({
       msg: "Email o password incorrectos "
     });
+
   };
 
   export const deleteUser = async (req: Request, res: Response) => {
